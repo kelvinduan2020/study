@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('PRINT') {
             steps {
-                echo 'Hello world!' 
+                echo 'Pull with Git not HTTP!' 
             }
         }
     }
