@@ -1,10 +1,21 @@
 #!/usr/bin/env groovy
 pipeline {
-    agent any 
+    agent none
     stages {
-        stage('PRINT') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3-alpine' }
+            }
             steps {
-                echo 'Pull with Git not HTTP!' 
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'node:14-alpine' }
+            }
+            steps {
+                sh 'node --version'
             }
         }
     }
